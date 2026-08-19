@@ -1,0 +1,796 @@
+<title>Empresex Case Study</title>
+<meta name="description" content="Design case study: rebuilding a licensed crypto exchange to read as financial infrastructure.">
+
+<!--
+  IMAGE SLOTS — none of these assets exist in this session. Each .shot below is a
+  deliberately finished placeholder frame, not a broken image. Replace the inner
+  markup with a real <img> when 01-cover.png / 03-desktop.png / 04-mobile.png /
+  05-module.png / 06-editorial.png / 07-longform.png are available. Do not stretch
+  or crop against the stated aspect ratio — the ratios were chosen to match the
+  product's own breakpoints (390 = mobile breakpoint, 1440-adjacent = desktop).
+
+  NUMBERS POLICY — every figure on this page is listed, verbatim, in
+  empresex-source.md / the task brief. No percentage, growth, or conversion figure
+  has been added. Where the source states a "before" number with no confirmed
+  "after" (the five-screens-to-widget count), the "after" is left as an explicit
+  empty slot, not estimated. Search this file for "SLOT:" to find every place that
+  needs real content before this page ships.
+-->
+
+<style>
+  :root {
+    color-scheme: dark;
+
+    /* ---- palette (explicit — page must hold its own background) ---- */
+    --bg:        #0b0a09;
+    --bg-alt:    #0e0d0c;
+    --ink:       #efe9df;
+    --ink-dim:   #a29b8e;
+    --ink-faint: #6f695f;
+    --line:      rgba(239, 233, 223, 0.14);
+    --line-soft: rgba(239, 233, 223, 0.07);
+    --accent:    #c8923f;
+    --accent-ink:#f2c98a;
+
+    /* ---- one typeface ---- */
+    --face: Helvetica, "Helvetica Neue", Arial, sans-serif;
+
+    /* ---- limited type scale (six sizes, used consistently) ---- */
+    --fs-xs:  0.6875rem;
+    --fs-sm:  0.9375rem;
+    --fs-md:  1.125rem;
+    --fs-lg:  clamp(1.6rem, 1.1rem + 2vw, 2.4rem);
+    --fs-xl:  clamp(2.2rem, 1.4rem + 4vw, 3.8rem);
+    --fs-hero:clamp(2.6rem, 1.3rem + 6vw, 5.4rem);
+
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.75rem;
+    --space-4: 3rem;
+    --space-5: 5rem;
+    --space-6: 8rem;
+
+    --wrap: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--face);
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.is-in { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 200;
+    background: var(--accent); color: #14100a;
+    padding: 0.6em 1em; font-size: var(--fs-xs);
+    text-transform: uppercase; letter-spacing: 0.12em;
+  }
+  .skip-link:focus { left: var(--space-2); top: var(--space-2); }
+
+  .wrap {
+    max-width: var(--wrap);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  .rule-top    { border-top: 1px solid var(--line); }
+  .rule-bottom { border-bottom: 1px solid var(--line); }
+
+  .label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75em;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-dim);
+  }
+  .label b { color: var(--accent); font-weight: 400; }
+
+  .lede {
+    max-width: 62ch;
+    color: var(--ink-dim);
+    font-size: var(--fs-md);
+    line-height: 1.65;
+  }
+
+  h1, h2, h3 { font-weight: 500; letter-spacing: -0.01em; margin: 0; }
+
+  /* ---------------- warm single light source (subtle, low-opacity) ---------------- */
+  .glow { position: relative; isolation: isolate; }
+  .glow::before {
+    content: "";
+    position: absolute; inset: 0; z-index: -1;
+    pointer-events: none;
+  }
+  .glow--hero::before {
+    background: radial-gradient(60% 55% at 82% 8%, rgba(200,146,63,0.16), transparent 70%);
+  }
+  .glow--direction::before {
+    background: radial-gradient(55% 60% at 6% 92%, rgba(200,146,63,0.10), transparent 70%);
+  }
+  .glow--contact::before {
+    background: radial-gradient(60% 60% at 14% 10%, rgba(200,146,63,0.13), transparent 70%);
+  }
+
+  /* ---------------- top bar ---------------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    gap: var(--space-2);
+  }
+  .topbar .name { font-size: var(--fs-sm); font-weight: 500; }
+  .topbar .role {
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-dim); display: none;
+  }
+  @media (min-width: 640px) { .topbar .role { display: inline; } }
+  .topbar nav a {
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-dim); border-bottom: 1px solid transparent; padding-bottom: 2px;
+  }
+  .topbar nav a:hover { color: var(--accent-ink); border-color: var(--accent); }
+
+  /* ---------------- hero ---------------- */
+  .hero { padding-block: var(--space-6) var(--space-5); }
+  .eyebrow {
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--accent-ink); margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: var(--fs-hero);
+    line-height: 1.02;
+    max-width: 16ch;
+  }
+  .hero-body {
+    margin-top: var(--space-4);
+    display: grid; gap: var(--space-4);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) {
+    .hero-body { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+  }
+  blockquote.pull {
+    margin: 0; padding-left: var(--space-3);
+    border-left: 2px solid var(--accent);
+    font-size: var(--fs-md);
+    color: var(--ink);
+    max-width: 46ch;
+  }
+  blockquote.pull cite {
+    display: block; margin-top: var(--space-2);
+    font-style: normal; font-size: var(--fs-xs);
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-faint);
+  }
+  .stake {
+    margin-top: var(--space-3);
+    color: var(--ink-dim);
+    max-width: 48ch;
+  }
+
+  .meta-row {
+    margin-top: var(--space-5);
+    display: grid; gap: var(--space-3);
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--line);
+    padding-top: var(--space-3);
+  }
+  @media (min-width: 640px) { .meta-row { grid-template-columns: repeat(4, 1fr); } }
+  .meta-row dt {
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-faint);
+  }
+  .meta-row dd { margin: 0.4em 0 0; font-size: var(--fs-sm); }
+
+  .rule-line {
+    margin-top: var(--space-5);
+    font-size: var(--fs-lg);
+    max-width: 30ch;
+    color: var(--ink);
+  }
+  .rule-line b { color: var(--accent-ink); font-weight: 500; }
+
+  /* ---------------- image slots ---------------- */
+  .shot { margin: 0; }
+  .shot-frame {
+    position: relative;
+    border: 1px solid var(--line);
+    background:
+      repeating-linear-gradient(135deg, var(--line-soft) 0 1px, transparent 1px 14px);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: var(--space-2);
+  }
+  .shot-frame .tick {
+    position: absolute; width: 10px; height: 10px;
+    border-color: var(--ink-faint); opacity: 0.6;
+  }
+  .tick.tl { top: -1px; left: -1px; border-top: 1px solid; border-left: 1px solid; }
+  .tick.tr { top: -1px; right: -1px; border-top: 1px solid; border-right: 1px solid; }
+  .tick.bl { bottom: -1px; left: -1px; border-bottom: 1px solid; border-left: 1px solid; }
+  .tick.br { bottom: -1px; right: -1px; border-bottom: 1px solid; border-right: 1px solid; }
+  .shot-id {
+    font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .shot-id b { color: var(--ink-dim); font-weight: 400; }
+  figcaption.shot-cap {
+    margin-top: var(--space-2);
+    font-size: var(--fs-xs); color: var(--ink-faint);
+    display: flex; justify-content: space-between; gap: 1em;
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+
+  .hero-shot .shot-frame { aspect-ratio: 21 / 9; }
+
+  /* ---------------- sections generic ---------------- */
+  section { padding-block: var(--space-5); }
+  .section-head { max-width: 60ch; }
+  .section-head h2 { font-size: var(--fs-xl); line-height: 1.08; margin-top: var(--space-2); }
+
+  /* ---------------- problem ---------------- */
+  .problem-grid {
+    margin-top: var(--space-4);
+    display: grid; gap: var(--space-4);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) { .problem-grid { grid-template-columns: 1fr 1fr; } }
+
+  .stat-pair {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .stat-pair > div { padding: var(--space-3) var(--space-2) 0 0; }
+  .stat-pair > div + div { border-left: 1px solid var(--line); padding-left: var(--space-3); }
+  .stat-num { font-size: var(--fs-xl); line-height: 1; }
+  .stat-num.empty { color: var(--ink-faint); }
+  .stat-cap { margin-top: 0.6em; font-size: var(--fs-xs); color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.1em; }
+  .stat-note { margin-top: 0.6em; font-size: var(--fs-xs); color: var(--ink-faint); text-transform: none; letter-spacing: normal; }
+
+  /* ---------------- direction (rejected vs chosen) ---------------- */
+  .direction-grid {
+    margin-top: var(--space-4);
+    display: grid; gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 860px) { .direction-grid { grid-template-columns: 1fr 1fr; } }
+  .direction-col { background: var(--bg); padding: var(--space-4) var(--space-3); }
+  .tag {
+    display: inline-block;
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.14em;
+    padding: 0.3em 0.7em; border: 1px solid var(--line);
+  }
+  .tag.rejected { color: var(--ink-faint); }
+  .tag.chosen { color: var(--accent-ink); border-color: var(--accent); }
+  .direction-col h3 { margin-top: var(--space-2); font-size: var(--fs-md); font-weight: 500; max-width: 26ch; }
+  .direction-col p { margin-top: var(--space-2); color: var(--ink-dim); max-width: 44ch; }
+  .direction-col.is-rejected p { text-decoration: none; }
+  .direction-close { margin-top: var(--space-3); max-width: 50ch; color: var(--ink); }
+
+  /* ---------------- showcase grid ---------------- */
+  .showcase-grid {
+    margin-top: var(--space-4);
+    display: grid; gap: var(--space-3);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 700px) { .showcase-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1100px) { .showcase-grid { grid-template-columns: repeat(3, 1fr); } }
+  .showcase-grid .shot:nth-child(1) { grid-column: span 2; }
+  @media (max-width: 699px) { .showcase-grid .shot:nth-child(1) { grid-column: span 1; } }
+  .shot[data-ar="desktop"] .shot-frame { aspect-ratio: 16 / 10; }
+  .shot[data-ar="mobile"]  .shot-frame { aspect-ratio: 390 / 800; max-width: 260px; margin-inline: auto; }
+  .shot[data-ar="module"]  .shot-frame { aspect-ratio: 4 / 3; }
+  .shot[data-ar="editorial"] .shot-frame { aspect-ratio: 3 / 2; }
+  .shot[data-ar="longform"] .shot-frame { aspect-ratio: 3 / 4; }
+
+  /* ---------------- ledger table ---------------- */
+  .ledger-wrap { margin-top: var(--space-4); overflow-x: auto; }
+  table.ledger {
+    width: 100%; min-width: 640px;
+    border-collapse: collapse;
+    font-size: var(--fs-sm);
+  }
+  table.ledger th {
+    text-align: left; font-weight: 400;
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    border-bottom: 1px solid var(--line);
+    padding: 0 var(--space-2) var(--space-2) 0;
+  }
+  table.ledger td {
+    border-bottom: 1px solid var(--line-soft);
+    padding: var(--space-2) var(--space-2) var(--space-2) 0;
+    vertical-align: top;
+  }
+  table.ledger td.n { color: var(--accent-ink); width: 2.5em; font-size: var(--fs-md); }
+  table.ledger td.metric { color: var(--ink); max-width: 30ch; }
+  table.ledger td.method { color: var(--ink-dim); max-width: 34ch; }
+
+  /* ---------------- contribution strip ---------------- */
+  .contribution {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding-block: var(--space-4);
+  }
+  .contribution p.big {
+    font-size: var(--fs-lg);
+    max-width: 26ch;
+    line-height: 1.2;
+  }
+  .contribution p.small {
+    margin-top: var(--space-2);
+    color: var(--ink-dim);
+    max-width: 52ch;
+  }
+  .contribution .role-line {
+    margin-top: var(--space-3);
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-faint);
+  }
+
+  /* ---------------- constraints ---------------- */
+  .constraints-list {
+    margin: var(--space-4) 0 0; padding: 0; list-style: none;
+    display: grid; gap: 0;
+  }
+  .constraints-list li {
+    border-top: 1px solid var(--line);
+    padding-block: var(--space-3);
+    display: grid; grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+  @media (min-width: 760px) {
+    .constraints-list li { grid-template-columns: 20ch 1fr; gap: var(--space-3); }
+  }
+  .constraints-list li:last-child { border-bottom: 1px solid var(--line); }
+  .constraints-list .k { color: var(--ink); font-size: var(--fs-sm); }
+  .constraints-list .v { color: var(--ink-dim); max-width: 56ch; }
+
+  /* ---------------- proof links ---------------- */
+  .proof-grid {
+    margin-top: var(--space-4);
+    display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 700px) { .proof-grid { grid-template-columns: 1fr 1fr; } }
+  .proof-tile {
+    background: var(--bg); padding: var(--space-3);
+    display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-3);
+    min-height: 160px;
+  }
+  .proof-tile .t { font-size: var(--fs-md); }
+  .proof-tile .d { color: var(--ink-dim); font-size: var(--fs-sm); }
+  .proof-tile .link {
+    align-self: flex-start;
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.14em;
+    border-bottom: 1px solid var(--accent); color: var(--accent-ink); padding-bottom: 2px;
+  }
+  .proof-tile .link[aria-disabled="true"] {
+    color: var(--ink-faint); border-color: var(--line); cursor: default;
+  }
+
+  /* ---------------- contact ---------------- */
+  .contact h2 { font-size: var(--fs-xl); max-width: 20ch; line-height: 1.1; }
+  .contact .lede { margin-top: var(--space-3); }
+  .contact-cta {
+    margin-top: var(--space-4);
+    display: inline-flex; align-items: baseline; gap: 0.6em;
+    font-size: var(--fs-md);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 4px;
+    color: var(--accent-ink);
+  }
+  .contact-cta:hover { color: var(--ink); border-color: var(--ink); }
+  .contact-note {
+    margin-top: var(--space-3);
+    font-size: var(--fs-xs); color: var(--ink-faint);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    max-width: 44ch;
+  }
+
+  footer.site-foot {
+    border-top: 1px solid var(--line);
+    padding-block: var(--space-3);
+  }
+  footer.site-foot .wrap {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2);
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--ink-faint);
+  }
+</style>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap">
+    <span class="name">Yuliia Kruk<span style="color:var(--accent)">·</span> <span class="role">Product Designer — SaaS &amp; Fintech</span></span>
+    <nav aria-label="Section">
+      <a href="#contact">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ 01 HERO ============ -->
+  <section class="hero glow glow--hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">Case study — crypto exchange · licensed EU VASP</p>
+      <h1>A crypto exchange rebuilt to read like financial infrastructure, not a token launch.</h1>
+
+      <div class="hero-body">
+        <div>
+          <blockquote class="pull">
+            <p>&ldquo;Empresex is a crypto exchange that needed to read as financial infrastructure — not as a token launch.&rdquo;</p>
+            <cite>Yuliia Kruk, on the brief</cite>
+          </blockquote>
+          <p class="stake">
+            Empresex is a licensed EU virtual-asset service provider — not a concept, a live
+            exchange moving real accounts and real transactions. Nobody types a wallet address
+            into something that looks like a landing page for a coin. The interface had to
+            earn that trust before it asked for anything.
+          </p>
+        </div>
+        <div>
+          <p class="rule-line">One rule ran the project: it has to look like it can be trusted with <b>money within four seconds.</b></p>
+        </div>
+      </div>
+
+      <dl class="meta-row">
+        <div><dt>Role</dt><dd>Product &amp; UI Designer — solo</dd></div>
+        <div><dt>Scope</dt><dd>Design system, 4 templates, front-end</dd></div>
+        <div><dt>Timeline</dt><dd>4 weeks</dd></div>
+        <div><dt>Status</dt><dd>Live, licensed EU VASP</dd></div>
+      </dl>
+
+      <figure class="shot hero-shot" style="margin-top:var(--space-5)">
+        <div class="shot-frame">
+          <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+          <span class="shot-id"><b>01</b> — Cover</span>
+        </div>
+        <figcaption class="shot-cap"><span>01-cover.png</span><span><!-- SLOT: replace with real asset --> pending</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 02 PROBLEM ============ -->
+  <section class="rule-top" id="problem">
+    <div class="wrap">
+      <div class="label"><b>02</b><span>The problem</span></div>
+      <div class="section-head">
+        <h2>This wasn't a taste problem. It was a trust problem with a number attached.</h2>
+      </div>
+
+      <div class="problem-grid">
+        <blockquote class="pull">
+          <p>&ldquo;Crypto interfaces default to neon gradients, glass cards and feature walls.
+          That signals hype, and hype is the opposite of what someone feels before they move
+          money.&rdquo;</p>
+          <cite>Yuliia Kruk</cite>
+        </blockquote>
+        <p class="lede">
+          The one thing users actually came for — the exchange widget — wasn't the loudest
+          thing on the screen. It wasn't on the screen at all, for a while. It was buried
+          behind marketing.
+        </p>
+      </div>
+
+      <div class="stat-pair">
+        <div>
+          <p class="stat-num">5</p>
+          <p class="stat-cap">Screens between landing and the exchange widget — before</p>
+        </div>
+        <div>
+          <!-- SLOT: "after" screens-to-widget count. The source (empresex-source.md) states
+               the BEFORE number only. No confirmed AFTER exists — do not invent one. -->
+          <p class="stat-num empty" aria-label="not yet measured">—</p>
+          <p class="stat-cap">After — <span class="stat-note">not re-measured on the live product yet</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 DIRECTION ============ -->
+  <section class="rule-top glow glow--direction" id="direction">
+    <div class="wrap">
+      <div class="label"><b>03</b><span>Direction</span></div>
+      <div class="section-head">
+        <h2>Two ways to design a crypto product. I ruled one out before drawing a single screen.</h2>
+      </div>
+
+      <div class="direction-grid">
+        <div class="direction-col is-rejected">
+          <span class="tag rejected">Considered, rejected</span>
+          <h3>The neon-gradient, glass-card, feature-wall template</h3>
+          <p>
+            The default pattern for crypto products: saturated gradients, translucent glass
+            cards, features stacked to signal momentum. It performs energy. Energy reads as
+            hype, and hype is exactly the wrong feeling to give someone right before they move
+            money — which made it disqualified on function, not on style.
+          </p>
+        </div>
+        <div class="direction-col">
+          <span class="tag chosen">Chosen</span>
+          <h3>One system that reads like frames of one photograph</h3>
+          <p>
+            &ldquo;One typeface (Helvetica), three type sizes per screen, and a single warm
+            light source that crops differently on every page, so the whole product reads
+            like frames of one photograph. Structure is drawn with 1px rules and negative
+            space instead of boxes and shadows. Accent colour never exceeds 3% of any
+            screen.&rdquo;
+          </p>
+        </div>
+      </div>
+      <p class="direction-close">Same brief, two very different products. Only one of them looks like something you'd hand your transaction history to.</p>
+    </div>
+  </section>
+
+  <!-- ============ 04 SHOWCASE ============ -->
+  <section class="rule-top" id="showcase">
+    <div class="wrap">
+      <div class="label"><b>04</b><span>What shipped</span></div>
+      <div class="section-head">
+        <h2>Four templates. One system holding all of them together.</h2>
+      </div>
+
+      <div class="showcase-grid">
+        <figure class="shot" data-ar="desktop">
+          <div class="shot-frame">
+            <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+            <span class="shot-id"><b>03</b> — Desktop</span>
+          </div>
+          <figcaption class="shot-cap"><span>03-desktop.png</span><span>Home — desktop</span></figcaption>
+        </figure>
+
+        <figure class="shot" data-ar="mobile">
+          <div class="shot-frame">
+            <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+            <span class="shot-id"><b>04</b> — Mobile</span>
+          </div>
+          <figcaption class="shot-cap"><span>04-mobile.png</span><span>Exchange — mobile</span></figcaption>
+        </figure>
+
+        <figure class="shot" data-ar="module">
+          <div class="shot-frame">
+            <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+            <span class="shot-id"><b>05</b> — Module</span>
+          </div>
+          <figcaption class="shot-cap"><span>05-module.png</span><span>System — components &amp; states</span></figcaption>
+        </figure>
+
+        <figure class="shot" data-ar="editorial">
+          <div class="shot-frame">
+            <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+            <span class="shot-id"><b>06</b> — Editorial</span>
+          </div>
+          <figcaption class="shot-cap"><span>06-editorial.png</span><span>Blog index</span></figcaption>
+        </figure>
+
+        <figure class="shot" data-ar="longform">
+          <div class="shot-frame">
+            <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+            <span class="shot-id"><b>07</b> — Longform</span>
+          </div>
+          <figcaption class="shot-cap"><span>07-longform.png</span><span>Long-form article</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 NUMBERS / LEDGER ============ -->
+  <section class="rule-top" id="numbers">
+    <div class="wrap">
+      <div class="label"><b>05</b><span>Shipped, with the method attached</span></div>
+      <div class="section-head">
+        <h2>Every number below has a way to check it.</h2>
+      </div>
+
+      <div class="ledger-wrap">
+        <table class="ledger">
+          <thead>
+            <tr><th scope="col">No.</th><th scope="col">What shipped</th><th scope="col">Method of origin</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="n">4</td>
+              <td class="metric">Page templates — home, blog index, long-form article, mobile exchange</td>
+              <td class="method">Counted at handoff: four templates delivered to development.</td>
+            </tr>
+            <tr>
+              <td class="n">1</td>
+              <td class="metric">Design system — tokens, type scale, components, states</td>
+              <td class="method">Built once, shared across every template — not re-solved per screen.</td>
+            </tr>
+            <tr>
+              <td class="n">3</td>
+              <td class="metric">Breakpoints, hand-set — 1440 / 1024 / 390</td>
+              <td class="method">Each breakpoint designed by hand, not left to automatic reflow.</td>
+            </tr>
+            <tr>
+              <td class="n">0</td>
+              <td class="metric">Stock assets used</td>
+              <td class="method">Every icon, graphic and illustration built from scratch for this project.</td>
+            </tr>
+            <tr>
+              <td class="n">4</td>
+              <td class="metric">Weeks — define → system → screens → build</td>
+              <td class="method">The engagement timeline, phase by phase.</td>
+            </tr>
+            <tr>
+              <td class="n">≤3%</td>
+              <td class="metric">Accent colour, as a share of any single screen</td>
+              <td class="method">Enforced as a system rule — checkable on any exported screen.</td>
+            </tr>
+            <tr>
+              <td class="n">1 / 3</td>
+              <td class="metric">Typeface used / type sizes allowed per screen</td>
+              <td class="method">One family (Helvetica), three sizes, no exceptions in the type spec.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 CONTRIBUTION ============ -->
+  <section class="contribution" id="contribution">
+    <div class="wrap">
+      <div class="label"><b>06</b><span>Who built this</span></div>
+      <p class="big" style="margin-top:var(--space-3)">Every screen. Every decision. <b style="color:var(--accent-ink)">Mine.</b></p>
+      <p class="small">
+        No agency, no subcontractor, no second designer on this project. I designed the
+        system, the four templates and the responsive front-end alone, start to finish.
+      </p>
+      <p class="role-line">Role: Product Designer / UI Designer — solo</p>
+    </div>
+  </section>
+
+  <!-- ============ 07 CONSTRAINTS ============ -->
+  <section class="rule-top" id="constraints">
+    <div class="wrap">
+      <div class="label"><b>07</b><span>Where this case stops</span></div>
+      <div class="section-head">
+        <h2>What I'm not claiming here.</h2>
+      </div>
+
+      <ul class="constraints-list">
+        <li>
+          <span class="k">No conversion number</span>
+          <span class="v">The five-screens-to-widget count was measured going in. It hasn't
+          been re-measured since launch — so there's no "after" figure here, because I
+          haven't measured it, not because it wasn't worth measuring.</span>
+        </li>
+        <li>
+          <span class="k">No revenue or growth figures</span>
+          <span class="v">Those sit outside design scope and were never mine to report.</span>
+        </li>
+        <li>
+          <span class="k">No claim on brand reputation</span>
+          <span class="v">Public reviews of the business are mixed, as with most exchanges.
+          This case is about the interface system that shipped — not an endorsement of the
+          company.</span>
+        </li>
+        <li>
+          <span class="k">No team to credit</span>
+          <span class="v">Built solo, so there's no "our process" here — only what one person
+          actually did.</span>
+        </li>
+        <li>
+          <span class="k">No claim past handoff</span>
+          <span class="v">Delivery covered the design system and the responsive front-end.
+          Production deployment and ongoing engineering belong to the client's team.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 08 PROOF ============ -->
+  <section class="rule-top" id="proof">
+    <div class="wrap">
+      <div class="label"><b>08</b><span>See it yourself</span></div>
+      <div class="section-head">
+        <h2>Two ways to check this beyond the screenshots.</h2>
+      </div>
+
+      <div class="proof-grid">
+        <div class="proof-tile">
+          <div>
+            <p class="t">Live product</p>
+            <p class="d">The exchange, in production — a licensed VASP, not a staging build.</p>
+          </div>
+          <!-- SLOT: insert real live-product URL, then remove aria-disabled -->
+          <a class="link" href="#" aria-disabled="true" onclick="return false;">Link on request</a>
+        </div>
+        <div class="proof-tile">
+          <div>
+            <p class="t">Figma system</p>
+            <p class="d">Tokens, components and states — the source behind every template.</p>
+          </div>
+          <!-- SLOT: insert real Figma file URL, then remove aria-disabled -->
+          <a class="link" href="#" aria-disabled="true" onclick="return false;">Link on request</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09 CONTACT ============ -->
+  <section class="rule-top glow glow--contact" id="contact">
+    <div class="wrap">
+      <div class="label"><b>09</b><span>Start here</span></div>
+      <h2 style="margin-top:var(--space-2)">Send your URL. I'll reply with one specific observation — not a pitch.</h2>
+      <p class="lede">
+        If it's a fintech, crypto or SaaS product, I can usually tell you something useful
+        about it in under a minute.
+      </p>
+      <!-- SLOT: replace # with a real mailto: or contact link -->
+      <a class="contact-cta" href="#" onclick="return false;">Email me →</a>
+      <p class="contact-note"><!-- SLOT: contact channel pending --> Contact link pending</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>Yuliia Kruk — Product Designer</span>
+    <span>Case: Empresex, crypto exchange · 2026</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var targets = document.querySelectorAll('section, .shot, .contribution');
+    targets.forEach(function (el) { el.classList.add('reveal'); });
+
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach(function (el) { io.observe(el); });
+  })();
+</script>
