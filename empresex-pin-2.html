@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<style>
+:root{
+  --bg:#141414;--panel:#212020;--panel-inset:#323131;
+  --line:rgba(247,245,243,0.12);--line-strong:rgba(247,245,243,0.22);
+  --ink:#fff;--ink-2:#AEABAB;--ink-3:#918F8F;--accent:#EF7759;--accent-dim:rgba(239,119,89,0.14);
+  --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--tr:0.16em;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:var(--bg);}
+.pin{width:1000px;height:1500px;position:relative;overflow:hidden;
+  background:radial-gradient(62% 34% at 50% -2%,rgba(255,255,255,0.07),transparent 70%),var(--bg);
+  color:var(--ink-2);font-family:var(--sans);font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;display:flex;flex-direction:column;padding:70px 72px 64px;}
+.top{display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:18px;color:var(--ink-3);
+  border-bottom:1px solid var(--line);padding-bottom:26px;}
+.kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:19px;color:var(--ink-3);margin:44px 0 26px;}
+h1{color:var(--ink);font-weight:700;font-size:62px;line-height:1.04;letter-spacing:-0.022em;max-width:15ch;}
+.ledger{margin-top:44px;flex:1;display:flex;flex-direction:column;justify-content:center;}
+.item{padding:26px 0;border-top:1px solid var(--line);}
+.item:first-child{border-top:none;}
+.line{display:flex;align-items:baseline;gap:16px;}
+.k{color:var(--ink-2);font-size:27px;flex:0 1 auto;}
+.lead{flex:1;border-bottom:1px dotted var(--line-strong);transform:translateY(-8px);min-width:16px;}
+.v{font-family:var(--mono);color:var(--ink);font-size:34px;white-space:nowrap;flex:0 0 auto;}
+.m{font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:15px;color:var(--ink-3);margin-top:11px;}
+.foot{display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--line);padding-top:28px;
+  font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:19px;color:var(--ink-3);}
+.foot .go{color:var(--ink);}
+.foot .a{color:var(--accent);}
+</style></head>
+<body>
+<div class="pin">
+  <div class="top">
+    <span>Yuliia Kruk — Product Design</span>
+    <span>Empresex · 2026</span>
+  </div>
+  <div class="kicker">Case file — read as a terminal, not a pitch</div>
+  <h1>Every number carries its method.</h1>
+
+  <div class="ledger">
+    <div class="item"><div class="line"><span class="k">Page templates shipped</span><span class="lead"></span><span class="v">4</span></div><div class="m">Method — counted at handoff</div></div>
+    <div class="item"><div class="line"><span class="k">Design systems built</span><span class="lead"></span><span class="v">1</span></div><div class="m">Method — reused across templates</div></div>
+    <div class="item"><div class="line"><span class="k">Breakpoints, hand-set</span><span class="lead"></span><span class="v">3</span></div><div class="m">Method — 1440 / 1024 / 390, not auto</div></div>
+    <div class="item"><div class="line"><span class="k">Stock assets used</span><span class="lead"></span><span class="v">0</span></div><div class="m">Method — every visual from scratch</div></div>
+    <div class="item"><div class="line"><span class="k">Accent colour / screen</span><span class="lead"></span><span class="v">&le; 3%</span></div><div class="m">Method — enforced as a system rule</div></div>
+  </div>
+
+  <div class="foot">
+    <span>Dark fintech UI · <span class="a">solo build</span></span>
+    <span class="go">Full case →</span>
+  </div>
+</div>
+</body></html>
