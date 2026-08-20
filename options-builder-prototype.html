@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Options Strategy Builder — before / after</title>
+<style>
+  :root{
+    color-scheme: dark;
+    --bg:#141414; --panel:#212020; --inset:#323131;
+    --line:rgba(247,245,243,0.12); --line-strong:rgba(247,245,243,0.20);
+    --ink:#fff; --ink-2:#AEABAB; --ink-3:#918F8F;
+    --accent:#EF7759; --accent-dim:rgba(239,119,89,0.14);
+    --pos:#7FB08A; --neg:#C56B5B;
+    --font-sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --r:12px; --r-lg:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--bg);
+    background-image:radial-gradient(60% 40% at 50% 0%,rgba(255,255,255,0.05),transparent 70%);
+    color:var(--ink-2); font-family:var(--font-sans);
+    font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased;
+    padding:40px 32px 72px;
+  }
+  .wrap{max-width:1200px;margin:0 auto}
+
+  /* ---- header / toggle ---- */
+  .top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 10px}
+  h1{font-size:clamp(1.5rem,3vw,2rem);line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin:0;font-weight:700}
+  h1 span{color:var(--ink-3);font-weight:400}
+  .toggle{display:inline-flex;border:1px solid var(--line-strong);border-radius:999px;padding:4px;background:var(--panel);font-family:var(--font-mono);font-size:12px}
+  .toggle button{appearance:none;border:0;background:transparent;color:var(--ink-3);padding:8px 18px;border-radius:999px;cursor:pointer;letter-spacing:.04em;text-transform:uppercase}
+  .toggle button.on{background:var(--ink);color:#0A0A0B;font-weight:700}
+
+  /* ---- counter strip ---- */
+  .meter{display:flex;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:28px;background:var(--panel)}
+  .meter div{flex:1;padding:14px 18px;border-right:1px solid var(--line)}
+  .meter div:last-child{border-right:0}
+  .meter .k{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+  .meter .v{font-family:var(--font-mono);font-size:20px;color:var(--ink)}
+  .meter .v b{color:var(--accent);font-weight:700}
+  .meter .v .arw{color:var(--ink-3);margin:0 8px}
+
+  /* ---- the app frame ---- */
+  .frame{border:1px solid var(--line-strong);border-radius:var(--r-lg);background:var(--panel);overflow:hidden}
+  .chrome{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);background:#1c1b1b;font-family:var(--font-mono);font-size:12px;color:var(--ink-3)}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--inset)}
+  .chrome .url{margin-left:8px}
+
+  /* breadcrumb (after only) */
+  .path{display:none;align-items:center;gap:10px;padding:12px 20px;border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:12px;color:var(--ink-3)}
+  .path b{color:var(--ink)} .path .sep{color:var(--accent)}
+  body.after .path{display:flex}
+
+  .stage{padding:20px}
+
+  /* filter bar */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .ctl{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);background:var(--inset);border:1px solid var(--line);border-radius:8px;padding:8px 12px;display:inline-flex;align-items:center;gap:8px}
+  .ctl .lab{color:var(--ink-3)}
+  .ctl.chip{background:transparent}
+  body.after .filters{gap:8px}
+  .summary-row{display:none;font-family:var(--font-mono);font-size:12px;color:var(--ink-3);align-items:center;gap:14px}
+  body.after .filters .full{display:none}
+  body.after .filters .summary-row{display:flex}
+  .summary-row .pill{background:var(--inset);border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--ink-2)}
+  .summary-row a{color:var(--accent);text-decoration:none;border-bottom:1px dashed var(--accent-dim);cursor:pointer}
+
+  /* main grid: before = 5 equal panels; after = table hero + muted rail */
+  .grid{display:grid;gap:16px}
+  body.before .grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:auto}
+  body.after  .grid{grid-template-columns:1.7fr 1fr}
+
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:16px;min-height:0}
+  .card h3{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 12px;font-weight:400}
+
+  /* strategy table */
+  .tbl{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:13px}
+  .tbl th{text-align:left;color:var(--ink-3);font-weight:400;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:0 10px 10px;border-bottom:1px solid var(--line)}
+  .tbl td{padding:11px 10px;border-bottom:1px solid var(--line);color:var(--ink-2)}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl .name{color:var(--ink)}
+  .tbl .pos{color:var(--pos)} .tbl .neg{color:var(--neg)}
+  body.after .tbl td{padding:14px 10px;font-size:14px}
+  body.after .tbl tr.pick{background:var(--accent-dim)}
+  body.after .tbl tr.pick td{border-color:transparent}
+  .rank{color:var(--ink-3);width:22px}
+
+  /* mini chart */
+  .chart{height:120px;display:flex;align-items:flex-end;gap:5px}
+  .chart span{flex:1;background:linear-gradient(180deg,var(--inset),#262525);border-radius:3px 3px 0 0}
+  .payoff{height:150px;position:relative}
+  .payoff svg{width:100%;height:100%}
+
+  /* editor rows */
+  .row{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:12.5px;padding:9px 0;border-bottom:1px solid var(--line);color:var(--ink-2)}
+  .row:last-child{border-bottom:0}
+  .row b{color:var(--ink)}
+
+  /* after: quiet rail + reveal cue */
+  .quiet{opacity:.4}
+  .reveal-note{display:none;font-family:var(--font-mono);font-size:12px;color:var(--ink-3);padding:14px 16px;border:1px dashed var(--line-strong);border-radius:var(--r);text-align:center}
+  body.after .reveal-note{display:block}
+
+  /* show/hide by state */
+  body.before .after-only{display:none}
+  body.after  .before-only{display:none}
+  .after-rail{gap:16px}
+  body.after .after-rail{display:grid}
+
+  .flag{display:inline-block;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);background:var(--accent-dim);border-radius:6px;padding:3px 8px;margin-left:10px;vertical-align:middle}
+
+  footer{margin-top:24px;font-family:var(--font-mono);font-size:11.5px;line-height:1.7;color:var(--ink-3)}
+  footer b{color:var(--ink-2);font-weight:400}
+</style>
+</head>
+<body class="before">
+<div class="wrap">
+
+  <div class="top">
+    <div>
+      <p class="eyebrow">Reconstruction · options strategy builder</p>
+      <h1>Trader page <span>— one clear place to start, not five</span></h1>
+    </div>
+    <div class="toggle" role="tablist">
+      <button id="b-before" class="on" onclick="setState('before')">Before</button>
+      <button id="b-after" onclick="setState('after')">After</button>
+    </div>
+  </div>
+
+  <div class="meter">
+    <div><div class="k">Controls on first load</div><div class="v"><span id="m1">23</span></div></div>
+    <div><div class="k">Decisions before first action</div><div class="v"><span id="m2">5</span></div></div>
+    <div><div class="k">Where to look first</div><div class="v" id="m3">ambiguous</div></div>
+  </div>
+
+  <div class="frame">
+    <div class="chrome">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="url">app.[product].com / trader / options-builder</span>
+    </div>
+
+    <div class="path">
+      <b>Filter</b><span class="sep">→</span><b>Pick a strategy</b><span class="sep">→</span><span>See payoff</span>
+    </div>
+
+    <div class="stage">
+
+      <!-- FILTER BAR -->
+      <div class="filters">
+        <!-- full (before) -->
+        <span class="ctl full"><span class="lab">Ticker</span> AAPL</span>
+        <span class="ctl full"><span class="lab">Expiry</span> 21 Mar</span>
+        <span class="ctl full"><span class="lab">Strategy</span> All</span>
+        <span class="ctl full"><span class="lab">Direction</span> Neutral</span>
+        <span class="ctl full"><span class="lab">Max risk</span> $2,000</span>
+        <span class="ctl full"><span class="lab">Min PoP</span> 60%</span>
+        <span class="ctl full"><span class="lab">Delta</span> ±0.3</span>
+        <span class="ctl full"><span class="lab">IV rank</span> &gt; 40</span>
+        <span class="ctl full"><span class="lab">Days</span> 30–45</span>
+        <span class="ctl full"><span class="lab">Sort</span> Return</span>
+        <!-- summary (after) -->
+        <span class="summary-row">
+          <span class="pill">AAPL · 21 Mar · Neutral · ≤ $2k risk</span>
+          <a>Edit filters</a>
+          <span>10 inputs collapsed to one line</span>
+        </span>
+      </div>
+
+      <div class="grid">
+
+        <!-- STRATEGY TABLE (hero in after) -->
+        <div class="card" style="grid-column:1 / 2">
+          <h3>Ranked strategies <span class="after-only flag">start here</span></h3>
+          <table class="tbl">
+            <thead><tr><th class="rank"></th><th>Strategy</th><th>Max profit</th><th>Max loss</th><th>PoP</th></tr></thead>
+            <tbody>
+              <tr class="pick"><td class="rank">1</td><td class="name">Iron Condor</td><td class="pos">+$420</td><td class="neg">−$580</td><td>68%</td></tr>
+              <tr><td class="rank">2</td><td class="name">Put Credit Spread</td><td class="pos">+$310</td><td class="neg">−$690</td><td>64%</td></tr>
+              <tr><td class="rank">3</td><td class="name">Call Calendar</td><td class="pos">+$540</td><td class="neg">−$460</td><td>59%</td></tr>
+              <tr><td class="rank">4</td><td class="name">Broken-wing Fly</td><td class="pos">+$380</td><td class="neg">−$620</td><td>57%</td></tr>
+              <tr><td class="rank">5</td><td class="name">Short Strangle</td><td class="pos">+$610</td><td class="neg">−$1,390</td><td>55%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- PAYOFF CHART -->
+        <div class="card before-only">
+          <h3>Payoff diagram</h3>
+          <div class="payoff">
+            <svg viewbox="0 0 200 100" preserveAspectRatio="none">
+              <line x1="0" y1="60" x2="200" y2="60" stroke="rgba(247,245,243,0.12)"/>
+              <polyline points="0,80 60,80 100,30 140,30 200,80" fill="none" stroke="#EF7759" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- POSITION EDITOR -->
+        <div class="card before-only">
+          <h3>Position editor</h3>
+          <div class="row"><span>Sell 1 · 190 Call</span><b>$3.10</b></div>
+          <div class="row"><span>Buy 1 · 195 Call</span><b>$1.60</b></div>
+          <div class="row"><span>Sell 1 · 170 Put</span><b>$2.90</b></div>
+          <div class="row"><span>Buy 1 · 165 Put</span><b>$1.50</b></div>
+        </div>
+
+        <!-- RETURNS -->
+        <div class="card before-only">
+          <h3>Expected returns</h3>
+          <div class="chart">
+            <span style="height:40%"></span><span style="height:62%"></span><span style="height:80%"></span>
+            <span style="height:55%"></span><span style="height:70%"></span><span style="height:48%"></span>
+          </div>
+        </div>
+
+        <!-- extra clutter panel to reach ~23 controls in before -->
+        <div class="card before-only">
+          <h3>Greeks &amp; adjustments</h3>
+          <div class="row"><span>Delta</span><b>−0.02</b></div>
+          <div class="row"><span>Theta</span><b>+$14/day</b></div>
+          <div class="row"><span>Vega</span><b>−$22</b></div>
+          <div class="row"><span>Roll · Close · Alert</span><b>···</b></div>
+        </div>
+
+        <!-- AFTER: quiet right rail, revealed on pick -->
+        <div class="after-only after-rail">
+          <div class="card">
+            <h3>Payoff · Iron Condor</h3>
+            <div class="payoff">
+              <svg viewbox="0 0 200 100" preserveAspectRatio="none">
+                <line x1="0" y1="60" x2="200" y2="60" stroke="rgba(247,245,243,0.12)"/>
+                <polyline points="0,82 55,82 100,26 145,82 200,82" fill="none" stroke="#EF7759" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="row"><span>Max profit</span><b class="tbl"><span class="pos">+$420</span></b></div>
+            <div class="row"><span>Max loss</span><b><span style="color:var(--neg)">−$580</span></b></div>
+            <div class="row"><span>Prob. of profit</span><b>68%</b></div>
+          </div>
+          <div class="reveal-note">Legs, Greeks &amp; adjustments open here once a strategy is picked — hidden until then.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <b>Method.</b> Reconstruction from the public job posting — not the client's product; built to show the thinking, not to claim their screens.<br>
+    <b>Counted in this mock:</b> interactive controls on first load 23 → 6 · decisions before a first-timer can act 5 → 1.<br>
+    <b>The one move:</b> the chain was invisible — filters drive the table, a table row redraws the chart. The After makes that order the layout: filter collapses, the ranked table leads, payoff/editor/Greeks stay quiet until a row is picked.
+  </footer>
+
+</div>
+
+<script>
+  function setState(s){
+    document.body.className=s;
+    document.getElementById('b-before').classList.toggle('on',s==='before');
+    document.getElementById('b-after').classList.toggle('on',s==='after');
+    document.getElementById('m1').textContent = s==='before'?'23':'6';
+    document.getElementById('m2').textContent = s==='before'?'5':'1';
+    document.getElementById('m3').textContent = s==='before'?'ambiguous':'the ranked table';
+  }
+</script>
+</body>
+</html>
