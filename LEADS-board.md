@@ -42,13 +42,32 @@ Hook: доделать Lovable, сохранив рабочее — её свя�
 
 ---
 
-## ВТОРОЙ ЭШЕЛОН (score 60–69) — офферы по запросу
+## ВТОРОЙ ЭШЕЛОН (score 60–69) — офферы готовы
 
-| Job | Что | score | почему ниже |
-|---|---|---|---|
-| 2089807610715939797 | Turn AI concept → production UI · US · клиент 48 наймов | 66 | тянет в графику, budget номинальный |
-| 2081580482876413340 | Fix Lovable/Base44 to production · CAN · клиент 185 наймов 4.99 | 63 | сильный клиент, но leans dev (auth/db/deploy) |
-| 2087928299838219766 | Senior Product Designer AI/Fintech · NGA · $300 · 6 откликов | 60 | ниша есть, клиент/бюджет слабые |
+### A. Turn AI concept → production-ready UI · US · клиент 48 наймов · 12 откликов — SCORE 66
+`job 2089807610715939797` · segment: rescue
+> AI gave you a concept; the gap now is everything that makes it feel real in production — states, edge cases, a consistent system, and a build that doesn't fall apart. That's the half most designers skip. I design in Figma and ship the front end in Next.js myself, so the "production-ready" in your title is literal, not a promise — the mockup and the running app are the same thing. Last build: full production site in 4 days, 5 colours across it. Send the concept and I'll turn one screen into a real, buildable version so you see the standard first.
+
+### B. Fix Lovable/Base44 app to production · CAN · клиент 185 наймов 4.99 · 26 откликов — SCORE 63
+`job 2081580482876413340` · segment: rescue
+> Broken auth, database errors, deploy issues on a Lovable/Base44 MVP — I know exactly where these tools cut corners. I keep what works and fix the last mile to production, and because I design AND ship in Next.js, the fixes come with a UI that finally looks intentional, not just functional. Last SaaS build: full production site in 4 days, git shows the pace. Point me at the app and the top 3 things breaking, and I'll tell you which are quick and which are structural before you hire — no guessing on your dime.
+
+### C. Senior Product Designer AI/Marketplace/Fintech · NGA · $300 · 6 откликов — SCORE 60
+`job 2087928299838219766` · segment: product
+> A vehicle-procurement system lives on one thing: can a buyer compare and commit without second-guessing. I'd fix the compare-and-decide flow first, aligned to your brand, then the rest. I design in Figma and ship in Next.js, so you get product thinking plus a real build from one person. Last SaaS build: 4 days, 5 colours across it. Happy to redraw your core screen so you judge on actual work, not a portfolio.
+
+---
+
+## ВНЕШНИЕ ИСТОЧНИКИ (RemoteOK / Wellfound)
+
+Прямой доступ к RemoteOK/Wellfound шлюз этой среды режет (egress-blocked) — в живом Zapier-сетапе
+они заходят по RSS, отсюда достаю только через поиск (заголовки). Точное попадание из поиска:
+
+### D. Reclevo · UI/UX Engineer (Figma AI, MCP, React / Next.js) · Wellfound — SCORE ~82 (по заголовку)
+`wellfound.com/jobs/3962591` · segment: product · **её связка буквально в названии вакансии**
+> Your title says it: UI/UX Engineer, Figma to React/Next.js — that seam is exactly what I do, one person instead of a designer-plus-dev handoff. I design the system in Figma and ship it in production Next.js, so nothing gets lost between the file and the build. Last SaaS build: full production site in 4 days, 5 colours across the whole thing, git shows the pace. I'd love to take one of your screens and hand back both the Figma and a working Next.js version so you see the seam close in practice.
+
+Отправлять через Wellfound (детали открой по ссылке — полный текст отсюда не читается).
 
 ---
 

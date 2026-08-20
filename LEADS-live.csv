@@ -11,3 +11,4 @@ date,job_id,title,country,job_type,budget,proposals,fit_score,segment,budget_sig
 2026-08-20,2087935531609938596,Design Engineer Next.js legal-tech,DE,hourly,0,8,0,disqualified,na,SKIP,"BERLIN/BRANDENBURG ONLY region lock"
 2026-08-20,2088143494781412780,Fix vibe-coded SaaS app,US,hourly,0,183,40,rescue,unknown,SKIP,"183 proposals saturated + backend stabilization"
 2026-08-20,2087590521618742533,SaaS Agentic AI dashboard,NP,fixed,50,13,40,product,low,SKIP,"budget $50"
+2026-08-20,wellfound-3962591,Reclevo UI/UX Engineer Figma+React/Next.js,US,fulltime,0,0,82,product,unknown,NEW,"her seam literally in the title; apply via Wellfound"
