@@ -1,4 +1,43 @@
-# Empresex → Pinterest — две публикации
+# Empresex → Pinterest — публикации
+
+## ЦЕПЛЯЮЩИЙ набор (под Pinterest-ленту) — использовать эти
+
+Светлые/цветные, формат «how-to» — то, что на Pinterest реально сохраняют.
+
+### Catch-1 — «How to make a crypto app feel safe with money»
+- **Файл:** `empresex-pin-catch-1.png` (крем-фон, 4 правила-карточки — saver-формат)
+- **Title (≤100):** `How to make a crypto app feel safe with money — 4 UI rules`
+- **Description:**
+  ```
+  4 rules I used to rebuild a licensed crypto exchange so it reads like financial
+  infrastructure: one typeface + three sizes, accent colour under 3%, structure in
+  1px lines instead of glass cards, and the exchange widget first — marketing last.
+  Real case (Empresex). Save it. Dark fintech UI · product design · UX tips.
+  ```
+
+### Catch-2 — «4 seconds» (scroll-stopper)
+- **Файл:** `empresex-pin-catch-2.png` (коралловый постер, гигантская 4s)
+- **Title (≤100):** `A fintech UI gets 4 seconds to earn trust`
+- **Description:**
+  ```
+  A fintech interface has about four seconds to look like it can be trusted with
+  money. Here’s how I rebuilt a licensed crypto exchange to earn it — design system,
+  four templates, front-end, solo. Real case (Empresex). Save · read the full case.
+  Fintech UX · crypto UI · product design.
+  ```
+
+Куда: доска `digital` или новая «Product design — case files». Оба ведут на кейс.
+
+---
+
+## Тёмный набор (глубже, для дизайн-аудитории) — запасной
+
+Ниже — первые два пина в тёмном жанре-реестре. Сильные, но тише в пинтерест-ленте.
+Держать как альтернативу / для Dribbble-аудитории.
+
+---
+
+# Старое: две публикации
 
 Формат пина: вертикаль 2:3, **1000×1500**. Оба ведут ссылкой на кейс Empresex.
 Файлы: `empresex-pin-1.png`, `empresex-pin-2.png` (исходники — `*-pin-1.html` / `*-pin-2.html`).
