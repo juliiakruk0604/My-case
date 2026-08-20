@@ -17,20 +17,34 @@ Claude их оценивает и пишет персональный оффер
 
 ---
 
-## 1. ИСТОЧНИКИ (breadth — не один канал)
+## 1. ИСТОЧНИКИ (breadth) — как достать RSS каждого
 
-**A. Job-фиды (живой спрос, RSS):**
-- **Upwork saved-search RSS** — создаёшь сохранённый поиск по ключам ниже, Upwork даёт RSS-ссылку.
-- **RemoteOK**: `https://remoteok.com/rss?tags=design,react`
-- **We Work Remotely / Wellfound** — RSS по дизайну/фронту.
+Поправка: у **Upwork и Wellfound своего RSS НЕТ** (Upwork убрал ~2019). Часть — нативный RSS,
+часть — через Google Alerts / генератор.
 
-**B. Публичные «застрял» сигналы (Google Alerts → RSS):**
-- Алерты на: `"built with Lovable"`, `"vibe coded" help`, `"Bolt.new" stuck`, `"made in v0" production`.
-- Google Alerts отдаёт RSS → в тот же Zap.
+**A. Готовые нативные RSS (вставить в Zapier как есть):**
+- RemoteOK: `https://remoteok.com/remote-design-jobs.rss`
+- RemoteOK: `https://remoteok.com/remote-react-jobs.rss`
+- RemoteOK: `https://remoteok.com/remote-frontend-jobs.rss`
+- We Work Remotely: `https://weworkremotely.com/categories/remote-design-jobs.rss`
+- We Work Remotely: `https://weworkremotely.com/categories/remote-front-end-programming-jobs.rss`
+- Remotive: `https://remotive.com/remote-jobs/feed/design`
 
-**C. Витрины AI-билдеров (фаза 2, вебхук/скрейпер):**
-- Lovable / Bolt / v0 showcase — публичные приложения их юзеров = преквалифицированный ICP.
-- Тянем через Webhooks by Zapier + скрейпер-шаг (или раз в день Schedule → raw request).
+**B. Google Alerts → RSS (гибкий, бесплатный; тащит и то, у чего фида нет):**
+1. google.com/alerts → запрос → Show options → **Deliver to: RSS feed** → Create.
+2. Клик по иконке RSS у алерта → копируй URL фида → в Zapier.
+Запросы: `"built with Lovable"` · `"vibe coded" (help OR stuck OR production)` ·
+`"Bolt.new" OR "v0.dev" MVP` · `site:upwork.com fintech designer "Next.js"` (Upwork через индекс Google).
+
+**C. Сайты без RSS (Wellfound, Contra, Upwork-поиск) — генератор RSS.app / Fetchrss:**
+- rss.app → вставить URL поиска (напр. `wellfound.com/role/r/product-designer`) → получить RSS-ссылку → в Zapier.
+
+**D. Upwork — лучше не через RSS-костыль, а через MCP/агента** (прогон точнее, без ToS-серости).
+
+**E. Витрины AI-билдеров (фаза 2):** Lovable/Bolt/v0 showcase → Webhooks by Zapier + скрейпер
+(или Schedule → raw request). Публичные приложения их юзеров = преквалифицированный ICP.
+
+Подключение: RSS by Zapier → Trigger «New Item in Feed» → URL фида → один Zap на фид.
 
 ---
 
