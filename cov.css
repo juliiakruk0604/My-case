@@ -1,0 +1,30 @@
+:root{
+  --bg:#141414;--panel:#1E1D1C;--panel-2:#262524;--inset:#2E2C2B;
+  --line:rgba(247,245,243,0.10);--line-2:rgba(247,245,243,0.16);--line-3:rgba(247,245,243,0.28);
+  --ink:#FCFAF8;--ink-2:#B4AFA9;--ink-3:#8A857F;
+  --accent:#EF7759;--accent-dim:rgba(239,119,89,0.16);
+  --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--tr:0.16em;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:var(--bg);}
+.stage{width:1600px;height:1200px;position:relative;overflow:hidden;color:var(--ink-2);
+  font-family:var(--sans);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;
+  /* single warm light source, cropped top-left, over warm-dark */
+  background:
+    radial-gradient(70% 90% at 22% -8%, rgba(239,119,89,0.16), rgba(239,119,89,0.04) 34%, transparent 60%),
+    radial-gradient(60% 70% at 85% 120%, rgba(255,255,255,0.04), transparent 60%),
+    var(--bg);}
+/* fine film grain */
+.stage::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);}
+.pad{position:absolute;inset:0;padding:70px 80px;display:flex;flex-direction:column;}
+.mh{display:flex;justify-content:space-between;align-items:center;z-index:2;
+  font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:16px;color:var(--ink-3);}
+.mh .live{display:inline-flex;align-items:center;gap:9px;color:var(--accent);
+  border:1px solid rgba(239,119,89,0.5);background:var(--accent-dim);border-radius:999px;padding:7px 15px 7px 12px;}
+.mh .live .d{width:7px;height:7px;border-radius:50%;background:var(--accent);}
+.cap{display:flex;justify-content:space-between;align-items:flex-end;z-index:2;
+  font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:16px;color:var(--ink-3);}
+.cap b{color:var(--ink-2);font-weight:400;}

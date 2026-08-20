@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="cov.css">
+<style>
+.grid{flex:1;display:grid;grid-template-columns:1fr 620px;gap:70px;align-items:center;z-index:2;}
+.lead .k{font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:17px;color:var(--accent);margin-bottom:24px;}
+.lead h1{color:var(--ink);font-weight:700;font-size:78px;line-height:0.98;letter-spacing:-0.028em;max-width:11ch;}
+.lead p{margin-top:28px;font-size:22px;line-height:1.45;color:var(--ink-2);max-width:32ch;}
+.sheet{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line-2);
+  border-radius:20px;padding:36px;box-shadow:0 40px 90px -40px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.04);
+  display:flex;flex-direction:column;gap:30px;}
+.sh-h{font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:13px;color:var(--ink-3);
+  display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:16px;}
+.swatches{display:flex;gap:14px;}
+.sw{flex:1;height:96px;border-radius:12px;border:1px solid var(--line);position:relative;}
+.sw span{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:11px;letter-spacing:0.05em;color:var(--ink-3);}
+.type{display:flex;align-items:baseline;gap:28px;border-top:1px solid var(--line);padding-top:26px;}
+.type .big{font-size:96px;font-weight:700;color:var(--ink);line-height:0.8;letter-spacing:-0.03em;}
+.type .mid{font-size:44px;font-weight:700;color:var(--ink-2);line-height:0.8;}
+.type .sm{font-size:22px;color:var(--ink-3);line-height:1;}
+.type .note{margin-left:auto;text-align:right;font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:12px;color:var(--ink-3);line-height:1.7;}
+.rules{display:flex;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);padding-top:26px;}
+.rule{font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--line-2);border-radius:999px;padding:11px 18px;}
+.rule.accent{color:var(--accent);border-color:rgba(239,119,89,0.5);background:var(--accent-dim);}
+</style></head>
+<body>
+<div class="stage"><div class="pad">
+  <div class="mh"><span>Yuliia Kruk — Product Design · SaaS / Fintech</span><span class="live"><span class="d"></span>Empresex · Design system</span></div>
+
+  <div class="grid">
+    <div class="lead">
+      <div class="k">Empresex — one system</div>
+      <h1>Built once. Reused across four templates.</h1>
+      <p>Tokens, type scale, components and states — solved once, not re-drawn per screen.</p>
+    </div>
+
+    <div class="sheet">
+      <div class="sh-h"><span>Design tokens</span><span>Empresex / v1</span></div>
+      <div class="swatches">
+        <div class="sw" style="background:#141414"><span>bg</span></div>
+        <div class="sw" style="background:#1E1D1C"><span>panel</span></div>
+        <div class="sw" style="background:#2E2C2B"><span>inset</span></div>
+        <div class="sw" style="background:#B4AFA9"><span>ink-2</span></div>
+        <div class="sw" style="background:#EF7759"><span style="color:#141414">accent</span></div>
+      </div>
+      <div class="type">
+        <span class="big">Aa</span><span class="mid">Aa</span><span class="sm">Aa</span>
+        <span class="note">Helvetica<br>3 sizes / screen<br>tabular nums</span>
+      </div>
+      <div class="rules">
+        <span class="rule">1 typeface</span>
+        <span class="rule">1px structure</span>
+        <span class="rule">0 stock assets</span>
+        <span class="rule accent">accent ≤ 3%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cap"><span>Case file — <b>the system behind the screens</b></span><span>02 / System</span></div>
+</div></div>
+</body></html>

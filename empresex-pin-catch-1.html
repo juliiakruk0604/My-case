@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<style>
+:root{
+  --cream:#F4F0EB;--cream2:# EAE4DC;--ink:#1B1917;--ink-2:#6E655C;
+  --accent:#E8623C;--accent-soft:#F6C9B8;--card:#FBF8F4;
+  --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--tr:0.14em;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:var(--cream);}
+.pin{width:1000px;height:1500px;position:relative;overflow:hidden;background:var(--cream);
+  color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;padding:76px 74px 70px;}
+.kick{font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:20px;color:var(--accent);font-weight:700;}
+.kick .g{color:var(--ink-2);font-weight:400;}
+h1{margin-top:26px;font-weight:800;font-size:82px;line-height:0.98;letter-spacing:-0.03em;max-width:13ch;}
+h1 mark{background:var(--accent);color:var(--cream);padding:0 .12em;border-radius:8px;}
+.list{margin-top:56px;display:flex;flex-direction:column;gap:22px;flex:1;}
+.rule{background:var(--card);border:1px solid rgba(27,25,23,0.08);border-radius:22px;
+  padding:30px 34px;display:flex;gap:26px;align-items:flex-start;box-shadow:0 2px 0 rgba(27,25,23,0.04);}
+.num{flex:0 0 auto;width:56px;height:56px;border-radius:14px;background:var(--accent-soft);color:var(--accent);
+  font-family:var(--mono);font-weight:700;font-size:26px;display:flex;align-items:center;justify-content:center;}
+.rt{flex:1;}
+.rt b{display:block;font-size:33px;font-weight:700;line-height:1.15;letter-spacing:-0.01em;}
+.rt span{display:block;margin-top:8px;font-size:22px;color:var(--ink-2);line-height:1.35;}
+.foot{margin-top:44px;display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:20px;color:var(--ink-2);}
+.pill{background:var(--ink);color:var(--cream);border-radius:999px;padding:14px 26px;font-weight:700;}
+</style></head>
+<body>
+<div class="pin">
+  <div class="kick">Product design · fintech &nbsp;<span class="g">/ Yuliia Kruk</span></div>
+  <h1>How to make a crypto app feel <mark>safe with money</mark></h1>
+  <div class="list">
+    <div class="rule"><div class="num">01</div><div class="rt"><b>One typeface, three sizes</b><span>No font zoo. Calm reads as control.</span></div></div>
+    <div class="rule"><div class="num">02</div><div class="rt"><b>Accent colour under 3%</b><span>Colour points, it doesn’t shout.</span></div></div>
+    <div class="rule"><div class="num">03</div><div class="rt"><b>Structure in 1px lines, not boxes</b><span>Negative space over glass cards.</span></div></div>
+    <div class="rule"><div class="num">04</div><div class="rt"><b>Put the exchange first</b><span>The thing users came for — not marketing.</span></div></div>
+  </div>
+  <div class="foot"><span>Empresex — real case</span><span class="pill">Save · full case →</span></div>
+</div>
+</body></html>

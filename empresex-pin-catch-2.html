@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<style>
+:root{
+  --bg:#E8623C;--bg2:#D64F2B;--ink:#1B1917;--cream:#F7F3EE;--soft:rgba(247,243,238,0.72);
+  --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--tr:0.16em;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:var(--bg);}
+.pin{width:1000px;height:1500px;position:relative;overflow:hidden;
+  background:radial-gradient(90% 60% at 50% 0%,var(--bg) 0%,var(--bg2) 100%);
+  color:var(--cream);font-family:var(--sans);-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;padding:80px 76px 72px;}
+.top{font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:20px;color:var(--soft);
+  display:flex;justify-content:space-between;border-bottom:1px solid rgba(247,243,238,0.28);padding-bottom:26px;}
+.mid{flex:1;display:flex;flex-direction:column;justify-content:center;}
+.big{font-weight:800;letter-spacing:-0.05em;line-height:0.82;font-size:420px;color:var(--cream);}
+.big small{font-size:150px;font-weight:700;}
+.claim{margin-top:16px;font-size:52px;font-weight:700;line-height:1.06;letter-spacing:-0.02em;max-width:15ch;}
+.sub{margin-top:30px;font-size:26px;color:var(--soft);line-height:1.4;max-width:30ch;}
+.foot{display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid rgba(247,243,238,0.28);padding-top:28px;
+  font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:20px;color:var(--soft);}
+.pill{background:var(--cream);color:var(--ink);border-radius:999px;padding:14px 26px;font-weight:700;}
+</style></head>
+<body>
+<div class="pin">
+  <div class="top"><span>Yuliia Kruk — Product Design</span><span>Fintech · UX</span></div>
+  <div class="mid">
+    <div class="big">4<small>s</small></div>
+    <div class="claim">is all a fintech UI gets to earn trust.</div>
+    <div class="sub">How I rebuilt a licensed crypto exchange to read like financial infrastructure — not a token launch.</div>
+  </div>
+  <div class="foot"><span>Empresex — real case file</span><span class="pill">Save · read →</span></div>
+</div>
+</body></html>
