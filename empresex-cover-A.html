@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="cov.css">
+<style>
+.grid{flex:1;display:grid;grid-template-columns:1fr 560px;gap:70px;align-items:center;z-index:2;}
+.lead .k{font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:17px;color:var(--accent);margin-bottom:24px;}
+.lead h1{color:var(--ink);font-weight:700;font-size:74px;line-height:0.98;letter-spacing:-0.028em;max-width:12ch;}
+.lead p{margin-top:28px;font-size:23px;line-height:1.45;color:var(--ink-2);max-width:34ch;}
+/* the exchange widget, drawn in the design system */
+.widget{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line-2);
+  border-radius:20px;padding:30px;box-shadow:0 40px 90px -40px rgba(0,0,0,0.8),inset 0 1px 0 rgba(255,255,255,0.04);}
+.wtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px;}
+.wtop .t{font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:14px;color:var(--ink-3);}
+.wtop .s{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);text-transform:uppercase;
+  letter-spacing:var(--tr);font-size:12px;color:var(--accent);}
+.wtop .s .d{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+.field{background:var(--inset);border:1px solid var(--line);border-radius:14px;padding:20px 22px;}
+.field .l{font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:12px;color:var(--ink-3);}
+.field .r{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;}
+.field .amt{font-size:44px;color:var(--ink);letter-spacing:-0.02em;font-weight:400;}
+.field .cur{font-family:var(--mono);font-size:15px;color:var(--ink);border:1px solid var(--line-2);
+  border-radius:999px;padding:8px 14px;letter-spacing:0.05em;}
+.swap{display:flex;justify-content:center;margin:-11px 0;position:relative;z-index:1;}
+.swap .b{width:44px;height:44px;border-radius:12px;background:var(--panel-2);border:1px solid var(--line-2);
+  display:flex;align-items:center;justify-content:center;color:var(--ink-2);font-size:20px;
+  box-shadow:0 6px 18px -8px rgba(0,0,0,0.9);}
+.rate{display:flex;justify-content:space-between;align-items:center;margin:22px 2px 0;
+  font-family:var(--mono);font-size:13px;color:var(--ink-3);letter-spacing:0.04em;}
+.cta{margin-top:22px;width:100%;background:var(--ink);color:#141414;border:none;border-radius:12px;
+  padding:19px;font-family:var(--mono);text-transform:uppercase;letter-spacing:var(--tr);font-size:14px;font-weight:700;}
+</style></head>
+<body>
+<div class="stage"><div class="pad">
+  <div class="mh"><span>Yuliia Kruk — Product Design · SaaS / Fintech</span><span class="live"><span class="d"></span>Empresex · Live EU VASP</span></div>
+
+  <div class="grid">
+    <div class="lead">
+      <div class="k">Empresex — crypto exchange</div>
+      <h1>The widget users came for, made the first thing they see.</h1>
+      <p>A licensed EU exchange, rebuilt to read like financial infrastructure — one warm light, 1px structure, accent under 3%.</p>
+    </div>
+
+    <div class="widget">
+      <div class="wtop"><span class="t">Exchange</span><span class="s"><span class="d"></span>Live rate</span></div>
+      <div class="field">
+        <div class="l">You send</div>
+        <div class="r"><span class="amt">1,000.00</span><span class="cur">EUR ▾</span></div>
+      </div>
+      <div class="swap"><div class="b">↓</div></div>
+      <div class="field">
+        <div class="l">You receive</div>
+        <div class="r"><span class="amt">0.01483</span><span class="cur">BTC ▾</span></div>
+      </div>
+      <div class="rate"><span>1 BTC = 67,404.20 EUR</span><span>fee 0.20%</span></div>
+      <button class="cta">Review order →</button>
+    </div>
+  </div>
+
+  <div class="cap"><span>Case file — <b>terminal at rest, every number carries its method</b></span><span>01 / Exchange</span></div>
+</div></div>
+</body></html>
