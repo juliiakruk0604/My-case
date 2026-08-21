@@ -31,16 +31,33 @@ Dashboard · Fintech · SaaS · Web App · Prototyping
 
 ## ШОТ 1 — Empresex · crypto exchange (терминал в покое)
 
-**Title:** `Crypto exchange UI — read as financial infrastructure, not a casino`
+**Title:** `Crypto exchange UI — trustworthy with money in four seconds`
 
 **Description:**
 ```
-Product UI for an EU-licensed exchange, where a wrong number costs real money. I dropped the neon-casino look and rebuilt the screens to read like a calm terminal: data rows instead of cards, one warm accent reserved only for live and pending states, nothing decorative competing with the balance.
+Empresex is a licensed crypto exchange (EU VASP) that needed to read as financial infrastructure — not a token launch.
 
-Design system: warm neutrals on #141414, 5 colours, modest radii.
-My part: research, IA, UI, the design system, and the front-end build.
+Crypto interfaces default to neon gradients, glass cards and feature walls. That signals hype — and hype is the opposite of what someone feels before they move money. The one thing users came for, the exchange widget, was buried five screens deep.
+
+I rebuilt it around one rule: it has to look trustworthy with money within four seconds.
+— One typeface (Helvetica), three type sizes per screen
+— A single warm light source, cropped differently on each page, so the whole product reads like frames of one photograph
+— Structure drawn with 1px rules and negative space instead of boxes and shadows
+— Accent colour never exceeds 3% of any screen
+
+Shipped solo in 4 weeks: a design system (tokens, scale, components, states), four templates, three hand-tuned breakpoints (1440 / 1024 / 390), and the responsive front-end build — zero stock assets.
+
+Screens to reach the exchange widget: 5 → [ your after number ]
+
+Role: product & UI design, the design system, and the front-end build.
 ```
-**Tags:** fintech, crypto, dashboard, product design, ui, design system, dark ui, web app, saas, data
+**Короткий вариант:**
+```
+A licensed EU crypto exchange rebuilt to read as financial infrastructure, not hype. No neon or glass — one typeface, 1px rules, negative space, accent under 3% per screen. The exchange widget was buried five screens deep; I brought it forward. Design system + 4 templates + responsive Next.js build, solo, 4 weeks.
+```
+**Tags:** fintech, crypto, crypto-exchange, design-system, dark-ui, product-design, typography, web-design, ui, ux, next-js
+
+⚠️ «5 → [ ]» — число «после» подтверждённого нет; впиши сама или оставь слот. Не выдумывать.
 
 ---
 
