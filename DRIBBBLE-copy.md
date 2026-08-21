@@ -31,7 +31,9 @@ Dashboard · Fintech · SaaS · Web App · Prototyping
 
 ## ШОТ 1 — Empresex · crypto exchange (терминал в покое)
 
-**Title:** `Crypto exchange UI — trustworthy with money in four seconds`
+**Title:** `Empresex — trust you can feel in four seconds`
+Альтернативы: `A crypto exchange that acts like it holds real money` ·
+`Trust, not hype — designing a crypto exchange` · `Financial infrastructure, not a token launch`
 
 Тон — СОВМЕЩЁННЫЙ (домашний голос для продуктовых кейсов, работает и на Dribbble, и на Upwork):
 тёплое человеческое начало (чувство) → прямая конкретика и числа → финал на факте, не на мечте.
