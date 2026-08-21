@@ -56,6 +56,20 @@ Design system, four templates, responsive Next.js build. Solo, four weeks.
 
 ---
 
+### CTA (её стиль — тёплый, без продажности; ставить в конце шота/профиля)
+```
+Building something in fintech or crypto? Send me the link — I'll reply with one specific thing I'd change, not a pitch.
+```
+Альтернативы:
+```
+If your product moves money, it should feel like it can be trusted. Send me a screen — I'll show you where the trust leaks.
+```
+```
+Have a screen that isn't pulling its weight? Send it over — one honest look, no pitch.
+```
+
+---
+
 ## ШОТ 2 — Fintech payout dashboard (числа-пруф)
 
 **Title:** `Fintech payout dashboard — settled balance in 1 screen, not 4`
