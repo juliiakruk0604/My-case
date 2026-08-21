@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+  :root{
+    --bg:#141414; --panel:#212020; --inset:#323131;
+    --line:rgba(247,245,243,0.12); --line-strong:rgba(247,245,243,0.20);
+    --ink:#fff; --ink-2:#AEABAB; --ink-3:#918F8F; --accent:#EF7759;
+    --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{margin:0;box-sizing:border-box}
+  html,body{background:var(--bg)}
+  .card{
+    width:1080px; min-height:1350px;
+    background:var(--bg);
+    background-image:radial-gradient(70% 40% at 50% 0%,rgba(255,255,255,0.05),transparent 68%);
+    color:var(--ink-2); font-family:var(--sans);
+    padding:76px 72px 64px; -webkit-font-smoothing:antialiased;
+  }
+  .eyebrow{font-family:var(--mono);font-size:16px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);margin-bottom:26px}
+  h1{color:var(--ink);font-size:68px;line-height:1.02;letter-spacing:-.025em;font-weight:700;margin-bottom:14px}
+  h1 .dim{color:var(--ink-3);font-weight:400}
+  .sub{font-family:var(--mono);font-size:17px;color:var(--ink-3);letter-spacing:.02em;margin-bottom:52px}
+
+  .row{display:grid;grid-template-columns:230px 1fr;gap:28px;align-items:baseline;
+       padding:30px 0;border-top:1px solid var(--line)}
+  .row:last-of-type{border-bottom:1px solid var(--line)}
+  .val{font-family:var(--mono);font-size:52px;line-height:1;color:var(--accent);font-weight:700;letter-spacing:-.02em}
+  .val.plain{color:var(--ink)}
+  .val.small{font-size:34px}
+  .body .lab{color:var(--ink);font-size:23px;line-height:1.3;margin-bottom:9px;font-weight:500}
+  .body .method{font-family:var(--mono);font-size:15px;line-height:1.5;color:var(--ink-3)}
+  .body .method b{color:var(--ink-2);font-weight:400}
+
+  .foot{margin-top:54px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+        border-top:1px solid var(--line-strong);padding-top:26px}
+  .foot .name{color:var(--ink);font-size:21px;font-weight:600}
+  .foot .name span{color:var(--ink-3);font-weight:400}
+  .foot .tag{font-family:var(--mono);font-size:15px;color:var(--ink-3);letter-spacing:.04em;text-align:right;line-height:1.5}
+  .dot{color:var(--accent)}
+</style></head>
+<body>
+<div class="card">
+  <div class="eyebrow">Case receipts · verifiable in ten seconds</div>
+  <h1>Designer who ships.<br><span class="dim">The receipts.</span></h1>
+  <div class="sub">Figma → Next.js · one person, design and build · SaaS &amp; fintech</div>
+
+  <div class="row">
+    <div class="val">4 days</div>
+    <div class="body"><div class="lab">Full production site, first commit to live</div>
+      <div class="method"><b>Method —</b> git log, 12 → 15 Aug, 10 commits</div></div>
+  </div>
+
+  <div class="row">
+    <div class="val">5 colors</div>
+    <div class="body"><div class="lab">Across the entire project</div>
+      <div class="method"><b>Method —</b> grep over the config · 3 breakpoints · 869 lines of own code</div></div>
+  </div>
+
+  <div class="row">
+    <div class="val small">42 screens<span class="dim" style="color:var(--ink-3)"> · </span>64 components</div>
+    <div class="body"><div class="lab">Fintech payout dashboard + its design system</div>
+      <div class="method"><b>Method —</b> counted in the Figma file and the shipped build</div></div>
+  </div>
+
+  <div class="row">
+    <div class="val">4 → 1</div>
+    <div class="body"><div class="lab">Screens a user crosses to see a settled balance</div>
+      <div class="method"><b>Method —</b> before/after flow, same task, same product</div></div>
+  </div>
+
+  <div class="row">
+    <div class="val">−38%</div>
+    <div class="body"><div class="lab">Support tickets tagged “payout status”, first month</div>
+      <div class="method"><b>Method —</b> measured after launch · raw counts and window in the case</div></div>
+  </div>
+
+  <div class="row">
+    <div class="val plain small">Next.js</div>
+    <div class="body"><div class="lab">Designs the system, then builds and deploys it herself</div>
+      <div class="method"><b>Method —</b> no agency, no handoff, no “mockup that breaks in build”</div></div>
+  </div>
+
+  <div class="foot">
+    <div class="name">Yuliia Kruk <span>· Product Designer</span></div>
+    <div class="tag">SaaS &amp; Fintech <span class="dot">·</span> Figma → Next.js<br>fixed projects</div>
+  </div>
+</div>
+</body></html>
