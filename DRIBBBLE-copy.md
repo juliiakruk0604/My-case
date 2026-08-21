@@ -33,24 +33,20 @@ Dashboard · Fintech · SaaS · Web App · Prototyping
 
 **Title:** `Crypto exchange UI — trustworthy with money in four seconds`
 
-Тон — её РАБОЧИЙ голос (Upwork-регистр: прямо, короткими утверждениями, с границей, числа, без
-лирического финала). Idiolect-профиль собран на её текстах; для этого шота взят твёрдый регистр.
+Тон — СОВМЕЩЁННЫЙ (домашний голос для продуктовых кейсов, работает и на Dribbble, и на Upwork):
+тёплое человеческое начало (чувство) → прямая конкретика и числа → финал на факте, не на мечте.
 
-**Основной (её голос, firm):**
+**Основной (совмещённый — Dribbble + Upwork):**
 ```
-Empresex is a licensed EU crypto exchange. It had to read as financial infrastructure, not a token launch.
+Money is a careful feeling. Right before you move it, you're not excited — you're paying attention.
 
-Crypto interfaces default to neon, glass and feature walls. That's hype — and hype is the wrong signal a second before someone moves money. People aren't excited then. They're careful.
+So Empresex, a licensed EU crypto exchange, had to read as financial infrastructure, not a token launch. Crypto defaults to neon, glass and feature walls — hype, and hype is the wrong signal at that moment.
 
-So I built for trust, not noise. One typeface. Warm light. Negative space instead of boxes and shadows. Accent under 3% of any screen.
+I built for trust instead. One typeface. Warm light. Negative space instead of boxes and shadows. Accent under 3% of any screen.
 
 The exchange — the only thing users came for — was buried five screens deep. I moved it to the front.
 
 Design system, four templates, responsive Next.js build. Solo, four weeks.
-```
-**Мягкий вариант (лиричный, если захочешь под серию как SOUND LABORATORY):**
-```
-Empresex — a licensed EU crypto exchange, where trust lives in the quiet spaces. Money is a careful feeling: right before you move it you're not excited, you're paying attention. Most crypto shouts — neon, glass. I chose stillness: one typeface, warm light, negative space, colour so sparse it can only mean something. What people came for was five screens deep. I brought it into the light.
 ```
 **Tags:** fintech, crypto, crypto-exchange, design-system, dark-ui, product-design, typography, web-design, ui, ux, next-js
 
