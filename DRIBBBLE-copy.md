@@ -33,19 +33,18 @@ Dashboard · Fintech · SaaS · Web App · Prototyping
 
 **Title:** `Crypto exchange UI — trustworthy with money in four seconds`
 
-Тон — её собственный (из шотов SOUND LABORATORY / HUMANITY): чувство первым, лиричные короткие
-строки, числа растворены в тексте, не торчат метрикой.
+Тон — её собственный, собран через Idiolect на её текстах (SOUND LABORATORY / HUMANITY /
+формулировки Empresex). Профиль: тёплый, метафоричный, «design as feeling», мягкий forward-looking финал.
 
-**Основной (её голос):**
+**Основной (её голос, Idiolect):**
 ```
-Money is a careful feeling.
-Right before you move it, you're not excited — you're paying attention.
+Empresex — a licensed EU crypto exchange, and a study in contrasts, where trust lives in the quiet spaces.
 
-Most crypto shouts: neon, glass, walls of features. But trust doesn't shout. It settles.
+Designing for money means embracing that careful, quiet feeling right before you move it. While most crypto platforms shout with neon and glass, I chose stillness — a single typeface, warm light casting gentle shadows, negative space that breathes, and colour so sparse it demands attention.
 
-So with Empresex I designed for that quiet. One typeface. Warm light. Space where the noise used to be — an exchange that feels less like a launch, and more like something that can hold what matters to you.
+The exchange, once hidden five screens deep, now welcomes users in the open, where it belongs.
 
-What people came for was five screens away. I brought it into the light.
+Design is an ongoing journey — and this is just the beginning.
 ```
 **Tags:** fintech, crypto, crypto-exchange, design-system, dark-ui, product-design, typography, web-design, ui, ux, next-js
 
