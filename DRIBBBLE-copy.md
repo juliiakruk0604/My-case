@@ -33,18 +33,24 @@ Dashboard · Fintech · SaaS · Web App · Prototyping
 
 **Title:** `Crypto exchange UI — trustworthy with money in four seconds`
 
-Тон — её собственный, собран через Idiolect на её текстах (SOUND LABORATORY / HUMANITY /
-формулировки Empresex). Профиль: тёплый, метафоричный, «design as feeling», мягкий forward-looking финал.
+Тон — её РАБОЧИЙ голос (Upwork-регистр: прямо, короткими утверждениями, с границей, числа, без
+лирического финала). Idiolect-профиль собран на её текстах; для этого шота взят твёрдый регистр.
 
-**Основной (её голос, Idiolect):**
+**Основной (её голос, firm):**
 ```
-Empresex — a licensed EU crypto exchange, and a study in contrasts, where trust lives in the quiet spaces.
+Empresex is a licensed EU crypto exchange. It had to read as financial infrastructure, not a token launch.
 
-Designing for money means embracing that careful, quiet feeling right before you move it. While most crypto platforms shout with neon and glass, I chose stillness — a single typeface, warm light casting gentle shadows, negative space that breathes, and colour so sparse it demands attention.
+Crypto interfaces default to neon, glass and feature walls. That's hype — and hype is the wrong signal a second before someone moves money. People aren't excited then. They're careful.
 
-The exchange, once hidden five screens deep, now welcomes users in the open, where it belongs.
+So I built for trust, not noise. One typeface. Warm light. Negative space instead of boxes and shadows. Accent under 3% of any screen.
 
-Design is an ongoing journey — and this is just the beginning.
+The exchange — the only thing users came for — was buried five screens deep. I moved it to the front.
+
+Design system, four templates, responsive Next.js build. Solo, four weeks.
+```
+**Мягкий вариант (лиричный, если захочешь под серию как SOUND LABORATORY):**
+```
+Empresex — a licensed EU crypto exchange, where trust lives in the quiet spaces. Money is a careful feeling: right before you move it you're not excited, you're paying attention. Most crypto shouts — neon, glass. I chose stillness: one typeface, warm light, negative space, colour so sparse it can only mean something. What people came for was five screens deep. I brought it into the light.
 ```
 **Tags:** fintech, crypto, crypto-exchange, design-system, dark-ui, product-design, typography, web-design, ui, ux, next-js
 
