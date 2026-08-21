@@ -33,15 +33,19 @@ Dashboard · Fintech · SaaS · Web App · Prototyping
 
 **Title:** `Crypto exchange UI — trustworthy with money in four seconds`
 
-Dribbble = скользят взглядом, не читают абзацы. Держать 1–2 строки.
+Тон — её собственный (из шотов SOUND LABORATORY / HUMANITY): чувство первым, лиричные короткие
+строки, числа растворены в тексте, не торчат метрикой.
 
-**Основной (2 строки):**
+**Основной (её голос):**
 ```
-No neon, no glass — a crypto exchange made to feel trustworthy, not hyped. The thing users came for was 5 screens deep; I moved it to the front. Design + build, solo, 4 weeks.
-```
-**Ещё короче (1 строка):**
-```
-A licensed EU crypto exchange that reads like it can hold your money — not a token launch. Exchange widget: 5 screens deep → front.
+Money is a careful feeling.
+Right before you move it, you're not excited — you're paying attention.
+
+Most crypto shouts: neon, glass, walls of features. But trust doesn't shout. It settles.
+
+So with Empresex I designed for that quiet. One typeface. Warm light. Space where the noise used to be — an exchange that feels less like a launch, and more like something that can hold what matters to you.
+
+What people came for was five screens away. I brought it into the light.
 ```
 **Tags:** fintech, crypto, crypto-exchange, design-system, dark-ui, product-design, typography, web-design, ui, ux, next-js
 
