@@ -33,27 +33,21 @@ Dashboard · Fintech · SaaS · Web App · Prototyping
 
 **Title:** `Crypto exchange UI — trustworthy with money in four seconds`
 
-**Description:**
+**Description (human voice — EN):**
 ```
-Empresex is a licensed crypto exchange (EU VASP) that needed to read as financial infrastructure — not a token launch.
+Empresex is a licensed crypto exchange in the EU, where the money on the screen is real.
 
-Crypto interfaces default to neon gradients, glass cards and feature walls. That signals hype — and hype is the opposite of what someone feels before they move money. The one thing users came for, the exchange widget, was buried five screens deep.
+Most crypto interfaces shout — neon gradients, glass cards, walls of features. But nobody feels excited right before they move their money; they feel careful. All that hype was quietly working against the product. And the one thing people actually came for — the exchange itself — sat five screens away.
 
-I rebuilt it around one rule: it has to look trustworthy with money within four seconds.
-— One typeface (Helvetica), three type sizes per screen
-— A single warm light source, cropped differently on each page, so the whole product reads like frames of one photograph
-— Structure drawn with 1px rules and negative space instead of boxes and shadows
-— Accent colour never exceeds 3% of any screen
+I wanted it to feel, in the first few seconds, like something you can trust with money. So I turned everything down. One typeface. A warm light that falls a little differently on each page, so the whole product reads like one photograph instead of a stack of screens. Lines and space instead of boxes and shadows. So little colour that it never argues with anything — it just points.
 
-Shipped solo in 4 weeks: a design system (tokens, scale, components, states), four templates, three hand-tuned breakpoints (1440 / 1024 / 390), and the responsive front-end build — zero stock assets.
+I did all of it on my own over four weeks: the design system, four templates, the responsive build, every visual made from scratch. No stock, no shortcuts.
 
-Screens to reach the exchange widget: 5 → [ your after number ]
-
-Role: product & UI design, the design system, and the front-end build.
+The exchange used to be five screens deep. Now it's [ your number ].
 ```
-**Короткий вариант:**
+**Короткий (human):**
 ```
-A licensed EU crypto exchange rebuilt to read as financial infrastructure, not hype. No neon or glass — one typeface, 1px rules, negative space, accent under 3% per screen. The exchange widget was buried five screens deep; I brought it forward. Design system + 4 templates + responsive Next.js build, solo, 4 weeks.
+A licensed EU crypto exchange. Crypto UIs usually shout — neon, glass, feature walls — but people feel careful before moving money, not hyped. So I made it quiet: one typeface, light and space instead of boxes, barely any colour. The thing people came for was buried five screens deep; I brought it to the front. Design system, four templates and the responsive build — on my own, in four weeks.
 ```
 **Tags:** fintech, crypto, crypto-exchange, design-system, dark-ui, product-design, typography, web-design, ui, ux, next-js
 
